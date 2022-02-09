@@ -24,8 +24,9 @@ set number
 " Show file stats
 set ruler
 
-" Blink cursor on error instead of beeping (grr)
+" Disable beeping and blinking 
 set visualbell
+set t_vb=
 
 " Encoding
 set encoding=utf-8

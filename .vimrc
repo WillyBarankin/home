@@ -38,7 +38,7 @@ autocmd Filetype cpp nnoremap <Leader>d :vert bo Termdebug %<<CR>
 "Fix Delete:
 inoremap <C-D> <C-O>x
 "Auto close brackets:
-autocmd Filetype cpp inoremap ; <Esc>A;
+"autocmd Filetype cpp inoremap ; <Esc>A;
 autocmd Filetype cpp inoremap { {}<Left>
 autocmd Filetype cpp inoremap {<CR> {<CR>}<Esc>O
 autocmd Filetype cpp inoremap {{ {

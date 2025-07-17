@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$?\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch) \$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -118,11 +118,11 @@ alias gs='git status'
 alias gd='git diff'
 alias gl='git log --oneline --graph --decorate'
 
-# Improved prompt with git branch and exit status
+# Improved prompt with git branch in brackets and a space before the $.
 parse_git_branch() {
-  git branch 2>/dev/null | grep '^*' | colrm 1 2
+  git branch 2>/dev/null | grep '^*' | colrm 1 2 | sed 's/.*/ [&]/'
 }
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\$?\$ '
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch) \$ '
 
 # Safety aliases
 alias rm='rm -i'
